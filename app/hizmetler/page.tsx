@@ -1,0 +1,5 @@
+import type {Metadata} from 'next';
+import {PageIntro,ContentCard,CTA} from '@/components/agency-content';
+import {serviceEntries,serviceGroups,serviceGroup} from '@/lib/service-groups';
+export const metadata:Metadata={title:'Hizmetler | Aymek Dijital',description:'Dijital reklam, marka, kreatif, e-ticaret ve operasyon için Aymek çözümleri.'};
+export default function Page(){return <><PageIntro label="HİZMETLER" title="Markanız için birbirini tamamlayan uzmanlıklar." description="Stratejiden yayına, ilk temastan tekrar satın almaya. Her ihtiyacı ayrı ayrı değil, işinizin bütününü görerek değerlendiriyoruz."/><div className="wrap jump-links">{serviceGroups.map((g,i)=><a key={g} href={`#grup-${i}`}>{g}</a>)}</div>{serviceGroups.map((g,i)=><section className="wrap catalog-section" id={`grup-${i}`} key={g}><h2 className="catalog-heading">{g}<small>0{i+1}</small></h2><div className="cards">{serviceEntries.filter(([s])=>serviceGroup(s)===g).map(([s,p],j)=><ContentCard key={s} title={p.title} text={p.intro} index={j} href={`/hizmetler/${s}`}/>)}</div></section>)}<CTA/></>}

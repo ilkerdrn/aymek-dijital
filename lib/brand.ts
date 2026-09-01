@@ -1,0 +1,5 @@
+export const brand={name:'Aymek Dijital',email:'aymekdijital@gmail.com',phone:'+90 542 129 83 16',phone2:'+90 543 129 83 16',whatsapp:'https://wa.me/905421298316',address:'Abdurrahman Nafiz Gürman Mahallesi, Şair Ahmet Kutsi Tecer Caddesi No: 36, Kat: 2, İç Kapı: 7, Güngören / İstanbul'};
+export const referenceIds=[10,14,12,20,28,1,36,35,34,33,32,31,30,29,13,27,26,25,24,23,21,22,11,46,45,43,44,47,48,49];
+export const referenceImage=(id:number)=>`/aymek/Adsiz-tasarim-${id}.png`;
+export const referenceNames:Record<number,string>={1:'Butikkolik',10:'QUQA',11:'Fushya',12:'Qalvé',13:'MUE',14:'Henza',20:'Simge Reyhan',21:'Luuna Store',22:'Moda Dubai',23:'Nur Okur',24:'MANQ',25:'EYYE Collection',26:'Qashé',27:'Duqa',28:'Onna',29:'Nuuk Official',30:'Munna.co',31:'Türkan Öğreten Atelier',32:'Bluemix Accessories',33:'Cemile Dikicier',34:'DuaButik',35:'Allin Official',36:'Hatun Atıla',44:'Essdesign',45:'Ayşenur Korkut',46:'Allora Fashion',48:'MAD Parfumeur'};
+export const navigation=[['Ajans','/kurumsal'],['Hizmetler','/hizmetler'],['E-ticaret','/e-ticaret'],['Referanslar','/referanslar'],['İçgörüler','/bilgi-merkezi']] as const;

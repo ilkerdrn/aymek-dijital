@@ -1,0 +1,10 @@
+import { readFileSync, mkdirSync } from 'node:fs';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+const run=promisify(execFile);
+const html=readFileSync(process.argv[2],'utf8');
+const urls=[...new Set([...html.matchAll(/data-nectar-img-src="([^"]+)"/g)].map(m=>m[1]))];
+mkdirSync('public/aymek',{recursive:true});
+const jobs=urls.map(url=>({url:url.replace('.png','-300x275.png'),path:'public/aymek/'+url.split('/').pop()}));
+jobs.push({url:'https://www.aymekdijital.com/wp-content/uploads/2026/03/Adsiz-tasarim-37.png',path:'public/aymek/logo.png'});
+let next=0;await Promise.all(Array.from({length:5},async()=>{while(next<jobs.length){const job=jobs[next++];try{await run('curl',['-sS','-L','--fail','--max-time','45',job.url,'-o',job.path]);console.log('OK '+job.path)}catch{console.log('FAILED '+job.path);process.exitCode=1}}}));

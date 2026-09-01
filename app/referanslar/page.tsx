@@ -1,0 +1,3 @@
+import type {Metadata} from 'next';import {PageIntro,ReferenceGrid,CTA} from '@/components/agency-content';
+export const metadata:Metadata={title:'Referanslarımız | Aymek Dijital',description:'Aymek Dijital’in mevcut referans portföyünde yer alan markalar.'};
+export default function Page(){return <><PageIntro label="REFERANSLARIMIZ" title="Güvenle başlayan iş birlikleri." description="Farklı sektörler, farklı hedefler. Aymek Dijital’in referans portföyündeki markalarla tanışın."/><section className="wrap reference-full"><ReferenceGrid/><p className="source-note">Marka logoları Aymek Dijital’in mevcut referans portföyünden alınmıştır. Proje kapsamları ve performans sonuçları ayrıca paylaşılmadığı için burada sonuç iddiası bulunmaz.</p></section><CTA/></>}

@@ -1,0 +1,2 @@
+import {PageIntro} from '@/components/agency-content';
+export default function NotFound(){return <><PageIntro label="404 / SAYFA BULUNAMADI" title="Bu bağlantı bir yere çıkmıyor." description="Sayfa taşınmış veya bağlantı yanlış yazılmış olabilir. Aşağıdaki bağlantılarla devam edebilirsiniz."/><div className="wrap recovery-actions"><a className="pill brand" href="/">Ana sayfaya dön</a><a className="pill" href="/hizmetler">Hizmetleri keşfet</a><a className="text-link" href="/iletisim">Bize ulaşın</a></div></>}

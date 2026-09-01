@@ -1,0 +1,4 @@
+import type {Metadata} from 'next';import {notFound} from 'next/navigation';import {articles,type ArticleSlug} from '@/lib/articles';import {PageIntro,CTA} from '@/components/agency-content';
+export function generateStaticParams(){return Object.keys(articles).map(slug=>({slug}))}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const{slug}=await params;const p=articles[slug as ArticleSlug];return p?{title:`${p.title} | Aymek Dijital`,description:p.intro}:{}}
+export default async function Page({params}:{params:Promise<{slug:string}>}){const{slug}=await params;const p=articles[slug as ArticleSlug];if(!p)notFound();return <><PageIntro label={p.tag} title={p.title} description={p.intro} back={{href:'/bilgi-merkezi',label:'Tüm içgörüler'}}/><article className="wrap article-body">{p.parts.map(([t,d])=><section key={t}><h2>{t}</h2><p>{d}</p></section>)}</article><CTA/></>}

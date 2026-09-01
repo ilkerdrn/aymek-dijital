@@ -1,0 +1,3 @@
+import type {MetadataRoute} from 'next';
+import {servicePages} from '@/lib/services';import {corporatePages} from '@/lib/corporate';import {sectors} from '@/lib/sectors';import {articles} from '@/lib/articles';
+export default function sitemap():MetadataRoute.Sitemap{const base='https://rcp-digital.ilkerdrnn.chatgpt.site';const paths=['','/hizmetler','/kurumsal','/sektorler','/bilgi-merkezi','/iletisim','/referanslar','/e-ticaret',...Object.keys(servicePages).map(s=>`/hizmetler/${s}`),...Object.keys(corporatePages).map(s=>`/kurumsal/${s}`),...Object.keys(sectors).map(s=>`/sektorler/${s}`),...Object.keys(articles).map(s=>`/bilgi-merkezi/${s}`)];return paths.map(p=>({url:base+p,changeFrequency:'monthly',priority:p===''?1:.7}))}

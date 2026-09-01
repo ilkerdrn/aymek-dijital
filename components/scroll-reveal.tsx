@@ -1,0 +1,3 @@
+"use client";
+import {useEffect} from 'react';import {usePathname} from 'next/navigation';
+export default function ScrollReveal(){const path=usePathname();useEffect(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('reveal-in');observer.unobserve(entry.target)}}},{threshold:.08});document.querySelectorAll('.section-heading,.content-card,.step,.detail-split,.split-statement').forEach(e=>observer.observe(e));return()=>observer.disconnect()},[path]);return null}
